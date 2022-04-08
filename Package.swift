@@ -28,11 +28,11 @@ if ProcessInfo.processInfo.environment["SWIFT_BUILD_SCRIPT_ENVIRONMENT"] != nil 
 //  - We need to require that the target is macOS (checked by `.when`) because binary dependencies are only supported by SwiftPM on macOS.
 #if os(macOS)
 let parserLibraryTarget: [Target] = [.binaryTarget(
-  name: "_InternalSwiftSyntaxParser",
-  url: "https://github.com/apple/swift-syntax/releases/download/0.50600.1/_InternalSwiftSyntaxParser.xcframework.zip",
-  checksum: "0e0d9ecbfddd0765485ded160beb9e7657e7add9d5ffd98ef61e8bd0c967e3a9"
+  name: "lib_InternalSwiftSyntaxParser",
+  url: "https://github.com/keith/StaticInternalSwiftSyntaxParser/releases/download/5.6/lib_InternalSwiftSyntaxParser.xcframework.zip",
+  checksum: "88d748f76ec45880a8250438bd68e5d6ba716c8042f520998a438db87083ae9d"
 )]
-let parserLibraryDependency: [Target.Dependency] = [.target(name: "_InternalSwiftSyntaxParser", condition: .when(platforms: [.macOS]))]
+let parserLibraryDependency: [Target.Dependency] = [.target(name: "lib_InternalSwiftSyntaxParser", condition: .when(platforms: [.macOS]))]
 #else
 let parserLibraryTarget: [Target] = []
 let parserLibraryDependency: [Target.Dependency] = []
